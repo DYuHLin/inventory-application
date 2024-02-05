@@ -7,7 +7,16 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+const mongoose = require('mongoose');
+mongoose.set('strictQuery', false);
+const mongoDB = "mongodb+srv://dyhlin2000:damian1216@cluster0.led1bup.mongodb.net/inventory_application?retryWrites=true&w=majority";
+
 var app = express();
+
+Main().catch((err)=> {console.log(err)});
+async function Main() {
+  await mongoose.connect(mongoDB);
+};
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
