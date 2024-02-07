@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const ShoeInstanceScehma = new Schema({
     shoe: {type: Schema.Types.ObjectId, ref: "Shoe", required: true},
-    manufactured: {type: String, required},
+    manufactured: {type: String, required: true},
     status: {
         type: String,
         required: true,

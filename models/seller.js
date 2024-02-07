@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const SellerSchema = new Schema({
     name: {type: String, required: true},
-    shoe: {type: Schema.Types.ObjectId, ref: 'Shoe', required: true},
+    shoebrand: {type: Schema.Types.ObjectId, ref: "Brand", required: true},
     established: {type: Date, default: Date.now}
 });
 
