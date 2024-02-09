@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('./head.ejs')  %>
+
+    <form action="POST">
+        <label for="title"></label>
+        <input type="text" id="title">
+        <label for="seller"></label>
+        <select name="seller" id="seller"></select>
+            <option value="">Select an Option</option>
+            <%if(sellers.length > 0){ %>
+                <% sellers.forEach(element => {%>
+                    <%if(book){ %>
+                        <% if(element._id.toString() === book.author._id.toString()) {%>
+                            <option value="<%=element._id %> selected"><%=element.name %></option>
+                        <% } else { %>
+                            <option value="<%=element._id %>"><%=element.name %></option>
+                        <% }; %>
+                    <% } else { %>
+                        <option value="<%=element._id %>"><%=element.name %></option>
+                    <% } %>
+                <%})%>
+                <%} else{%>
+                    <p>There are no Sellers</p>
+                <%}%>
+
+        <label for="summary"></label>
+        <textarea name="" id="seller" cols="30" rows="10"></textarea>
+        <label for="brand"></label>
+        <option value="" id="brand"></option>
+        <button type="submit">Create Shoe</button>
+    </form>
+</body>
+</html>

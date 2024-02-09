@@ -8,5 +8,19 @@
 </head>
 <body>
     <%- include('./head.ejs')  %>
+
+    <section>
+        <a href="/catalog/shoes/create">New Shoe</a>
+        <%if(shoe.length > 0){%>
+        <%shoe.forEach(element => {%>
+            <div class="shoe-list">
+                <a href="<%=element.url%>"> <%=element.title %> </a>
+                <p> <%= element.seller.name%> </p>
+            </div>
+       <%})%>
+       <%}else{%>
+            <p>There are no shoes</p>
+        <%}%>
+    </section>
 </body>
 </html>

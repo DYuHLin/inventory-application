@@ -23,10 +23,19 @@ exports.index = asynchandler(async (req, res, next) => {
 
 //get list of shoes
 exports.shoe_list_get = asynchandler(async (req, res, next) => {
-    const shoes = await Shoe.find({}, "name seller")
-        .sort({title: -1})
+    const shoes = await Shoe.find({}, "title seller")
+        .sort({title: 1})
         .populate("seller")
         .exec();
 
     res.render("shoe_list", {title: "Shoe List", shoe: shoes});
+});
+
+exports.shoe_create_get = asynchandler(async (req, res, next) => {
+    const [allSellers, allBrands] = await Promise.all([
+        Seller.find().sort({name: 1}).exec(),
+        Brand.find().sort({name: 1}).exec()
+    ]);
+
+    res.render("shoe_form", {title: "Shoe Create", sellers: allSellers, brands: allBrands});
 });
