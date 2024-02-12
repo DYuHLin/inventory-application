@@ -14,7 +14,7 @@
         <%if(shoe.length > 0){%>
         <%shoe.forEach(element => {%>
             <div class="shoe-list">
-                <a href="<%=element.url%>"> <%=element.title %> </a>
+                <a href="/<%=element.url%>"> <%=element.title %> </a>
                 <p> <%= element.seller.name%> </p>
             </div>
        <%})%>

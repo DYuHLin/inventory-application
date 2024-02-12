@@ -10,7 +10,11 @@ router.get("/", shoe_controller.index);
 
 //shoe routes
 router.get("/shoes", shoe_controller.shoe_list_get);
+
 router.get("/shoes/create", shoe_controller.shoe_create_get);
+router.post("/shoes/create", shoe_controller.shoe_create_post);
+
+router.get("/shoes/:id", shoe_controller.get_shoe_detail);
 
 //brand routes
 router.get("/brands", brandController.brand_list_get);
