@@ -11,7 +11,7 @@
 
     <form method="POST">
         <label for="title"></label>
-        <input type="text" id="title" required value="">
+        <input name="title" type="text" id="title" required value="<%undefined === shoes ? "" : shoes.title %>"/>
         <label for="seller"></label>
         <select name="seller" id="seller">
             <option value="">Select an Option</option>
@@ -24,7 +24,7 @@
                 <%}%>
         </select>
         <label for="summary"></label>
-        <textarea name="" id="summary" cols="30" rows="10"></textarea>
+        <textarea name="summary" id="summary" cols="30" rows="10" placeholder="summary" required <%undefined === shoes ? "" : shoes.summary  %>></textarea>
         <label for="brand"></label>
         <select name="brand" id="brand">
             <option value="">Select an Option</option>

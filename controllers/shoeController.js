@@ -33,12 +33,13 @@ exports.shoe_list_get = asynchandler(async (req, res, next) => {
 });
 
 exports.shoe_create_get = asynchandler(async (req, res, next) => {
-    const [allSellers, allBrands] = await Promise.all([
+    const [allSellers, allBrands, allShoes] = await Promise.all([
         Seller.find().sort({name: 1}).exec(),
-        Brand.find().sort({name: 1}).exec()
+        Brand.find().sort({name: 1}).exec(),
+        Shoe.find().sort({title: 1}).exec()
     ]);
 
-    res.render("shoe_form", {title: "Shoe Create", sellers: allSellers, brands: allBrands});
+    res.render("shoe_form", {title: "Shoe Create", sellers: allSellers, brands: allBrands, shoes: allShoes});
 });
 
 exports.shoe_create_post = [
@@ -70,17 +71,10 @@ exports.shoe_create_post = [
             brand: req.body.brand
         });
 
-        if(!errors.isEmpty()) {
-            const [allSellers, allBrands] = await Promise.all([
-                Seller.find().sort({name: 1}).exec(),
-                Brand.find().sort({name: 1}).exec(),
-            ]);
-
-            res.render("shoe_form", {title: "Shoe Create", sellers: allSellers, brands: allBrands, shoe: shoe, errors: errors.array()})
-        } else {
+        
             await shoe.save();
             res.redirect("/")
-        }
+        
     }),
 ];
 
@@ -96,5 +90,5 @@ exports.get_shoe_detail = asynchandler(async (req, res, next) => {
         return next(err);
     };
 
-    res.render("shoe_detail", {title: shoe.title, shoe: shoe, shoe_instance: shoeInstance} );
+    res.render("shoe_detail", {title: shoe.title, shoe: shoe, shoe_instance: shoeInstance} )
 });
