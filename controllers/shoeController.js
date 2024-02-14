@@ -111,6 +111,7 @@ exports.shoe_update_get = asynchandler(async (req, res, next) => {
 
     if(Shoes === null) {
         const err = new Error("Shoe not found");
+        err.status = 404;
         return next(err);
     };
 
@@ -143,7 +144,8 @@ exports.shoe_update_post = [
             title: req.body.title,
             seller: req.body.seller,
             summary: req.body.summary,
-            brand: req.body.brand
+            brand: req.body.brand,
+            _id: req.params.id
         });
 
         if(!errors.isEmpty()) {
@@ -155,8 +157,8 @@ exports.shoe_update_post = [
             res.render("shoe_form", {title: "Shoe Update", sellers: allSellers, brands: allBrands, shoes: shoe, errors: errors.array()});
             return;
         } else {
-            const updateShoe = await Shoe.findOneAndUpdate(req.params.id, shoe, {});
-            res.redirect("/")
+            const updateShoe = await Shoe.findByIdAndUpdate(req.params.id, shoe, {});
+            res.redirect(updateShoe.url)
         };
     })
 ];
