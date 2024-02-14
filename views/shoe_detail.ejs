@@ -8,11 +8,24 @@
 </head>
 <body>
     <%- include('./head.ejs')  %>
-
+    <a href="/catalog/shoes/<%=shoe._id  %>/update">Update Shoe</a>
+    <a href="/catalog/shoes/:id/delete">Delete Shoe</a>
     <p>Shoe: </p>
     <p>Seller: </p>
     <p>Summary: </p>
     <p>Brand: </p>
     <p></p>
+
+    <div>
+        <%if(shoe_instance.length > 0){%>
+            <%shoe_instance.forEach(element => {%>
+                <div class="shoe-list">
+                    
+                </div>
+           <%})%>
+           <%}else{%>
+                <p>There are no shoe instance for this shoe</p>
+            <%}%>
+    </div>
 </body>
 </html>

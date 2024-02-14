@@ -16,6 +16,9 @@ router.post("/shoes/create", shoe_controller.shoe_create_post);
 
 router.get("/shoes/:id", shoe_controller.get_shoe_detail);
 
+router.get("/shoes/:id/update", shoe_controller.shoe_update_get);
+router.post("/shoes/:id/update", shoe_controller.shoe_update_post);
+
 //brand routes
 router.get("/brands", brandController.brand_list_get);
 
