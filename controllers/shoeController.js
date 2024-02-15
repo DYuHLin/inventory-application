@@ -162,3 +162,32 @@ exports.shoe_update_post = [
         };
     })
 ];
+
+//shoe delete
+exports.shoe_delete_get = asynchandler(async (req, res, next) => {
+    const [shoe, shoeInstance] = await Promise.all([
+        Shoe.findById(req.params.id).exec(),
+        ShoeInstance.find({shoe: req.params.id}, "title summary").exec()
+    ]);
+
+    if(shoe === null){
+        res.redirect("/catalog/shoes");
+    };
+
+    res.render("shoe_delete", {title: "delete shoe", shoe: shoe, shoe_instance: shoeInstance});
+});
+
+exports.shoe_delete_post = asynchandler(async (req, res, next) => {
+    const [shoe, shoeInstance] = await Promise.all([
+        Shoe.findById(req.params.id).exec(),
+        ShoeInstance.find({shoe: req.params.id}, "title summary").exec()
+    ]);
+
+    if(shoeInstance.length > 0) {
+        res.render("shoe_delete", {title: "delete shoe", shoe: shoe, shoe_instance: shoeInstance});
+        return;
+    } else {
+        await Shoe.findByIdAndDelete(req.body.shoeid);
+        res.redirect("/catalog/shoes");
+    };
+});
