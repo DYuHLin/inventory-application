@@ -23,7 +23,18 @@ router.get("/shoes/:id/delete", shoe_controller.shoe_delete_get);
 router.post("/shoes/:id/delete", shoe_controller.shoe_delete_post);
 
 //brand routes
-router.get("/brands", brandController.brand_list_get);
+router.get("/brand", brandController.brand_list_get);
+
+router.get("/brand/create", brandController.brand_create_get);
+router.post("/brand/create", brandController.brand_create_post);
+
+router.get("/brand/:id", brandController.get_brand_detail);
+
+router.get("/brand/:id/update", brandController.brand_update_get);
+router.post("/brand/:id/update", brandController.brand_update_post);
+
+router.get("/brand/:id/delete", brandController.brand_delete_get);
+router.post("/brand/:id/delete", brandController.brand_delete_post);
 
 //seller routes
 router.get("/sellers", sellerController.sellers_list_get);

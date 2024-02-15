@@ -8,5 +8,19 @@
 </head>
 <body>
     <%- include('./head.ejs')  %>
+
+    <section>
+        <a href="/catalog/brand/create">New Brand</a>
+        <%if(brand.length > 0){%>
+        <%brand.forEach(element => {%>
+            <div class="shoe-list">
+                <a href="/catalog/brand/<%=element._id%>"> <%=element.name %> </a>
+                <p> <%= element.origin%> </p>
+            </div>
+       <%})%>
+       <%}else{%>
+            <p>There are no Brands</p>
+        <%}%>
+    </section>
 </body>
 </html>
