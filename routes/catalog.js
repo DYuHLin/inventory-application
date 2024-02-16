@@ -37,7 +37,17 @@ router.get("/brand/:id/delete", brandController.brand_delete_get);
 router.post("/brand/:id/delete", brandController.brand_delete_post);
 
 //seller routes
-router.get("/sellers", sellerController.sellers_list_get);
+router.get("/seller", sellerController.sellers_list_get);
+router.get("/seller/create", sellerController.seller_create_get);
+router.post("/seller/create", sellerController.seller_create_post);
+
+router.get("/seller/:id", sellerController.get_seller_detail);
+
+router.get("/seller/:id/update", sellerController.seller_update_get);
+router.post("/seller/:id/update", sellerController.seller_update_post);
+
+router.get("/seller/:id/delete", sellerController.seller_delete_get);
+router.post("/seller/:id/delete", sellerController.seller_delete_post);
 
 //instance routes
 router.get("/instances", shoeinstanceController.shoeinstance_list_get);

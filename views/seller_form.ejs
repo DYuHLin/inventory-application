@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <%- include('./head.ejs')  %>
+
+    <form method="POST">
+        <label for="name">Name: </label>
+        <input name="name" type="text" id="name" required value="<%=undefined === seller ? "" : seller.name %>"/>
+        <label for="shoebrand">Brand: </label>
+        <select name="shoebrand" id="shoebrand">
+            <option value="">Select an Option</option>
+            <%if(brands.length > 0){ %>
+                <% brands.forEach(element => {%>
+                    <option value="<%=element._id %>"><%=element.name %></option>
+                <%})%>
+                <%} else{%>
+                    <p>There are no Brands</p>
+                <%}%>
+        </select>
+        <label for="established">Established: </label>
+        <input type="date" name="established" value="<%=undefined === seller ? "" : seller.established %>">
+        <button type="submit">Create Seller</button>
+    </form>
+</body>
+</html>

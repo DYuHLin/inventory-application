@@ -1,7 +1,5 @@
 const Brand = require("../models/brand");
-const Seller = require("../models/seller");
 const Shoes = require("../models/shoe");
-const Shoeinstances = require("../models/shoeInstance");
 const {body, validationResult} = require("express-validator");
 
 const asynchandler = require("express-async-handler");

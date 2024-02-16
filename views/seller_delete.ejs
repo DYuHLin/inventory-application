@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <%- include('./head.ejs')  %>
+
+    <p><%=shoes.name %></p>
+    <% if(shoes.length > 0) { %>
+        <p>Delete the following shoes before deleting this Seller.</p>
+        <%shoes.forEach(element => { %>
+            <a href="<%= element.url %>"><%= element.title %></a>
+            <p><%= element.description %></p>
+        <% }) %>
+    <% }else { %>
+        <p>Are you sure you want to delete this Seller?</p>
+        <form method="POST">
+            <input type="hidden" name="sellerid" value="<%=seller._id %>">
+            <button type="submit">Delete</button>
+        </form>
+    <% }; %>
+</body>
+</html>

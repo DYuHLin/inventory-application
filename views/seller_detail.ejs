@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <%- include('./head.ejs')  %>
+    <a href="/catalog/seller/<%=sellers._id  %>/update">Update seller</a>
+    <a href="/catalog/seller/<%=sellers._id  %>/delete">Delete seller</a>
+    <p>Name: <%= sellers.name %></p>
+    <p>Brand: <%= sellers.shoebrand.name %></p>
+    <p>Manufactured: <%= sellers.manufactured %></p>
+
+    <div>
+        <%if(shoes.length > 0){%>
+            <%shoes.forEach(element => {%>
+                <div class="shoe-list">
+                    
+                </div>
+           <%})%>
+           <%}else{%>
+                <p>There are no shoes for this seller</p>
+            <%}%>
+    </div>
+</body>
+</html>
