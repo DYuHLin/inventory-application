@@ -9,7 +9,7 @@
 <body>
     <%- include('./head.ejs')  %>
 
-    <p><%=shoes.name %></p>
+    <p><%=seller.name %></p>
     <% if(shoes.length > 0) { %>
         <p>Delete the following shoes before deleting this Seller.</p>
         <%shoes.forEach(element => { %>

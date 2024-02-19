@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title %></title>
+</head>
+<body>
+    <%- include('./head.ejs')  %>
+    <a href="/catalog/shoeinstance/<%=shoe_instance._id  %>/update">Update shoe instance</a>
+    <a href="/catalog/shoeinstance/<%=shoe_instance._id  %>/delete">Delete shoe instance</a>
+
+    <p><%=shoe_instance.shoe.title %></p>
+
+    <p>Manufactured: <%= shoe_instance.manufactured %></p>
+    <p>status: <%= shoe_instance.status %></p>
+    <p>Restocking: <%= shoe_instance.restocking_formatted %></p>
+
+    <!--  -->
+</body>
+</html>

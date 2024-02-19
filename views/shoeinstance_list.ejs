@@ -8,5 +8,22 @@
 </head>
 <body>
     <%- include('./head.ejs')  %>
+
+    <section>
+        <a href="/catalog/shoeinstance/create">New shoe instance</a>
+
+        <% if(shoeinstance.length > 0) { %>
+            <%shoeinstance.forEach(element => { %>
+                <div>
+                    <a href="<%=element.url %>"><%=element.shoe.title %></a>
+                    <p>Manufactured: <%=element.manufactured %></p>
+                    <p>Status: <%=element.status %></p>
+                    <p>Restocking: <%=element.restocking_formatted %></p>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>There are no shoe instances</p>
+        <% } %>
+    </section>
 </body>
 </html>

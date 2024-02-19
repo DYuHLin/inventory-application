@@ -15,7 +15,7 @@
         <%seller_list.forEach(element => {%>
             <div class="shoe-list">
                 <a href="/catalog/seller/<%=element._id%>"> <%=element.name %> </a>
-                <p> <%= element.established%> </p>
+                <p> <%= element.established_formatted%> </p>
             </div>
        <%})%>
        <%}else{%>

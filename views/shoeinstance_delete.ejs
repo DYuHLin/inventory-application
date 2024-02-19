@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <%- include('./head.ejs')  %>
+
+    <div>
+        <p><%=shoe_instance.shoe.title %></p>
+        <p><%=shoe_instance.manufactured %></p>
+        <p><%=shoe_instance.status %></p>
+        <p><%=shoe_instance.restocking_formatted %></p>
+    </div>
+
+    <p>Do you really want to delete this instance?</p>
+    <form method="POST">
+        <input type="hidden" name="shoeinstanceid" id="shoeinstanceid" value="<%=shoe_instance._id %>">
+        <button type="submit">Delete Instance</button>
+    </form>
+</body>
+</html>

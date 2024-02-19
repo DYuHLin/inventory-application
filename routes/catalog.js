@@ -50,6 +50,17 @@ router.get("/seller/:id/delete", sellerController.seller_delete_get);
 router.post("/seller/:id/delete", sellerController.seller_delete_post);
 
 //instance routes
-router.get("/instances", shoeinstanceController.shoeinstance_list_get);
+router.get("/shoeinstance", shoeinstanceController.shoeinstance_list_get);
+
+router.get("/shoeinstance/create", shoeinstanceController.shoeinstance_create_get);
+router.post("/shoeinstance/create", shoeinstanceController.shoeinstance_create_post);
+
+router.get("/shoeinstance/:id", shoeinstanceController.get_shoeinstance_detail);
+
+router.get("/shoeinstance/:id/update", shoeinstanceController.shoeinstance_update_get);
+router.post("/shoeinstance/:id/update", shoeinstanceController.shoeinstance_update_post);
+
+router.get("/shoeinstance/:id/delete", shoeinstanceController.shoeinstance_delete_get);
+router.post("/shoeinstance/:id/delete", shoeinstanceController.shoeinstance_delete_post);
 
 module.exports = router;
