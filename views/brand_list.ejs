@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <title><%= title %></title>
 </head>
 <body>
     <%- include('./head.ejs')  %>
 
-    <section>
-        <a href="/catalog/brand/create">New Brand</a>
+    <section class="home">
+        <a href="/catalog/brand/create" class="page-links">New Brand</a>
         <%if(brand.length > 0){%>
         <%brand.forEach(element => {%>
-            <div class="shoe-list">
-                <a href="/catalog/brand/<%=element._id%>"> <%=element.name %> </a>
+            <div class="home-page">
+                <a href="/catalog/brand/<%=element._id%>" class="page-links"> <%=element.name %> </a>
                 <p> <%= element.origin%> </p>
             </div>
        <%})%>

@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <title><%= title %></title>
 </head>
 <body>
     <%- include('./head.ejs')  %>
 
-    <section>
-        <a href="/catalog/shoeinstance/create">New shoe instance</a>
+    <section class="home">
+        <a href="/catalog/shoeinstance/create" class="page-links">New shoe instance</a>
 
         <% if(shoeinstance.length > 0) { %>
             <%shoeinstance.forEach(element => { %>
-                <div>
-                    <a href="<%=element.url %>"><%=element.shoe.title %></a>
+                <div class="home-page">
+                    <a href="<%=element.url %>" class="page-links"><%=element.shoe.title %></a>
                     <p>Manufactured: <%=element.manufactured %></p>
                     <p>Status: <%=element.status %></p>
                     <p>Restocking: <%=element.restocking_formatted %></p>

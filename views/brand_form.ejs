@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <title><%= title %></title>
 </head>
 <body>
     <%- include('./head.ejs')  %>
 
-    <form method="POST">
-        <label for="brand">Brand Name: </label>
-        <input id="brand" name="name" type="text" placeholder="Nike, Adidas, Converse, etc" required value="<%=undefined === brand ? "" : brand.name  %>">
-        <label for="origin">Origin: </label>
-        <input id="origin" name="origin" type="text" placeholder="France, USA, Germany, etc" required value="<%=undefined === brand ? "" : brand.origin  %>">
-        <button type="submit">Create Brand</button>
-    </form>
+    <section class="home">
+        <form method="POST">
+            <label for="brand">Brand Name: </label>
+            <input id="brand" name="name" type="text" placeholder="Nike, Adidas, Converse, etc" required value="<%=undefined === brand ? "" : brand.name  %>">
+            <label for="origin">Origin: </label>
+            <input id="origin" name="origin" type="text" placeholder="France, USA, Germany, etc" required value="<%=undefined === brand ? "" : brand.origin  %>">
+            <button type="submit">Create Brand</button>
+        </form>
+    </section>
+    
 </body>
 </html>

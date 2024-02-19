@@ -1,8 +1,140 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
-a {
-  color: #00B7FF;
+html{
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(235, 231, 231);
+}
+
+header {
+  width: 100%;
+  height: 90px;
+  background-color: rgb(93, 93, 255);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 45px;
+}
+
+.site-title{
+  margin-left: 20px;
+}
+
+ul{
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  margin-right: 20px;
+}
+
+.head-links {
+  text-decoration: none;
+  font-size: 20px;
+  color: rgb(235, 231, 231);
+}
+
+.page-links {
+  text-decoration: none;
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+.home{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-page{
+  padding: 24px;
+  width: 35%;
+  margin-bottom: 28px;
+  border-radius: 7px;
+  box-shadow: 5px 5px 5px 5px hsl(0, 0%, 80%);
+  transition: all 0.3s;
+  background-color: white;
+}
+
+.home-title{
+  font-size: 30px;
+  margin: 24px;
+}
+
+.home-info{
+  font-style: italic;
+}
+
+.title{
+  font-size: 24px;
+}
+
+button {
+  border: none;
+  width: 100%;
+  height: 60px;
+  background-color: rgb(93, 93, 255);
+  color: white;
+  font-size: 18px;
+  transition: all 0.3s;
+}
+
+button:hover{
+  cursor: pointer;
+  background-color: white;
+  transform: translateY(-5px);
+  border: 6px solid rgb(93, 93, 255);
+  color: rgb(93, 93, 255);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+}
+
+textarea {
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  height: 40px;
+  background-color: white;
+  border-radius: 7px;
+  border: none;
+}
+
+textarea {
+  background-color: white;
+  width: 100%;
+  border-radius: 7px;
+  border: none;
+  resize: none;
+}
+
+label {
+  margin-bottom: 12px;
+  margin-top: 12px;
+}
+
+body::-webkit-scrollbar {
+  width: 6px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border-radius: 7px;
 }

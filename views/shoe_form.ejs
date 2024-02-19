@@ -4,39 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <title>Document</title>
 </head>
 <body>
     <%- include('./head.ejs')  %>
 
-    <form method="POST">
-        <label for="title"></label>
-        <input name="title" type="text" id="title" required value="<%=undefined === shoes ? "" : shoes.title %>"/>
-        <label for="seller"></label>
-        <select name="seller" id="seller">
-            <option value="">Select an Option</option>
-            <%if(sellers.length > 0){ %>
-                <% sellers.forEach(element => {%>
-                    <option value="<%=element._id %>"><%=element.name %></option>
-                <%})%>
-                <%} else{%>
-                    <p>There are no Sellers</p>
-                <%}%>
-        </select>
-        <label for="summary"></label>
-        <textarea name="summary" id="summary" cols="30" rows="10" placeholder="summary" required><%=undefined === shoes ? "" : shoes.summary %></textarea>
-        <label for="brand"></label>
-        <select name="brand" id="brand">
-            <option value="">Select an Option</option>
-            <%if(brands.length > 0){ %>
-                <% brands.forEach(element => {%>
-                    <option value="<%=element._id %>"><%=element.name %></option>
-                <%})%>
-                <%} else{%>
-                    <p>There are no Brands</p>
-                <%}%>
-        </select>
-        <button type="submit">Create Shoe</button>
-    </form>
+    <section class="home">
+        <form method="POST">
+            <label for="title"></label>
+            <input name="title" type="text" id="title" required value="<%=undefined === shoes ? "" : shoes.title %>"/>
+            <label for="seller"></label>
+            <select name="seller" id="seller">
+                <option value="">Select an Option</option>
+                <%if(sellers.length > 0){ %>
+                    <% sellers.forEach(element => {%>
+                        <option value="<%=element._id %>"><%=element.name %></option>
+                    <%})%>
+                    <%} else{%>
+                        <p>There are no Sellers</p>
+                    <%}%>
+            </select>
+            <label for="summary"></label>
+            <textarea name="summary" id="summary" cols="30" rows="10" placeholder="summary" required><%=undefined === shoes ? "" : shoes.summary %></textarea>
+            <label for="brand"></label>
+            <select name="brand" id="brand">
+                <option value="">Select an Option</option>
+                <%if(brands.length > 0){ %>
+                    <% brands.forEach(element => {%>
+                        <option value="<%=element._id %>"><%=element.name %></option>
+                    <%})%>
+                    <%} else{%>
+                        <p>There are no Brands</p>
+                    <%}%>
+            </select>
+            <button type="submit">Create Shoe</button>
+        </form>
+    </section>
 </body>
 </html>

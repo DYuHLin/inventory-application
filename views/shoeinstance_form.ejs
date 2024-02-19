@@ -4,36 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <title><%= title %></title>
 </head>
 <body>
     <%- include('./head.ejs')  %>
-    <form method="POST">
-        <label for="shoe">Shoe: </label>
-        <select name="shoe" id="shoe">
-            <option value="">Select an Option</option>
-            <%if(shoes.length > 0){ %>
-                <% shoes.forEach(element => {%>
-                    <option value="<%=element._id %>"><%=element.title %></option>
-                <%})%>
-                <%} else{%>
-                    <p>There are no Shoes</p>
-                <%}%>
-        </select>
-        <label for="manufactured">Manufactured (country): </label>
-        <input type="text" name="manufactured" placeholder="USA, China, Vietnam, etc" id="manufactured" value="<%=undefined === shoeinstance ? "" : shoeinstance.manufactured %>">
-
-        <label for="status">Status: </label>
-        <select name="status" id="status">
-            <option value="">Select an Option</option>
-                <% ["Unavailable", "Available", "Restocking", "Limited"].forEach(element => {%>
-                    <option value="<%=element %>"><%=element %></option>
-                <%})%>
-        </select>
-
-        <label for="established">Restocking: </label>
-        <input name="established" id="established" type="date" name="restocking" value="<%=undefined === shoeinstance ? "" : shoeinstance.restocking %>">
-        <button type="submit">Create shoe instance</button>
-    </form>
+    <section class="home">
+        <form method="POST">
+            <label for="shoe">Shoe: </label>
+            <select name="shoe" id="shoe">
+                <option value="">Select an Option</option>
+                <%if(shoes.length > 0){ %>
+                    <% shoes.forEach(element => {%>
+                        <option value="<%=element._id %>"><%=element.title %></option>
+                    <%})%>
+                    <%} else{%>
+                        <p>There are no Shoes</p>
+                    <%}%>
+            </select>
+            <label for="manufactured">Manufactured (country): </label>
+            <input type="text" name="manufactured" placeholder="USA, China, Vietnam, etc" id="manufactured" value="<%=undefined === shoeinstance ? "" : shoeinstance.manufactured %>">
+    
+            <label for="status">Status: </label>
+            <select name="status" id="status">
+                <option value="">Select an Option</option>
+                    <% ["Unavailable", "Available", "Restocking", "Limited"].forEach(element => {%>
+                        <option value="<%=element %>"><%=element %></option>
+                    <%})%>
+            </select>
+    
+            <label for="established">Restocking: </label>
+            <input name="established" id="established" type="date" name="restocking" value="<%=undefined === shoeinstance ? "" : shoeinstance.restocking %>">
+            <button type="submit">Create shoe instance</button>
+        </form>
+    </section>
 </body>
 </html>

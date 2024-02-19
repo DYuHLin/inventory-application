@@ -6,11 +6,15 @@
   </head>
   <body>
     <%- include('./head.ejs')  %>
-    <h1><%= title %></h1>
-    <p>Welcome to rgrgrgr</p> <p><%= title %></p>
-      <p>Shoe Count: </p> <p><%=shoe_count %></p>
-      <p>Seller Count: </p> <p><%=seller_count %></p>
-      <p>Brand Count: </p> <p><%=brand_count %></p>
-      <p>Shoe instance available Count: </p> <p><%=shoeinstance %></p>
+    <section class="home">
+        <h1 class="home-title"><%= title %></h1>
+      <div class="home-page">
+        <p class="home-info title">Welcome to the shoe store</p> <p><%= title %></p>
+        <p class="home-info">Shoe Count: </p> <p><%=shoe_count %></p>
+        <p class="home-info">Seller Count: </p> <p><%=seller_count %></p>
+        <p class="home-info">Brand Count: </p> <p><%=brand_count %></p>
+        <p class="home-info">Shoe instance available Count: </p> <p><%=shoeinstance %></p>
+      </div>
+    </section>
   </body>
 </html>
