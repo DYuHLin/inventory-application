@@ -167,7 +167,7 @@ exports.shoe_update_post = [
 exports.shoe_delete_get = asynchandler(async (req, res, next) => {
     const [shoe, shoeInstance] = await Promise.all([
         Shoe.findById(req.params.id).exec(),
-        ShoeInstance.find({shoe: req.params.id}, "title summary").exec()
+        ShoeInstance.find({shoe: req.params.id}).exec()
     ]);
 
     if(shoe === null){

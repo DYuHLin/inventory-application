@@ -9,20 +9,32 @@
 </head>
 <body>
     <%- include('./head.ejs')  %>
-
-    <p><%=shoe.title %></p>
-    <% if(shoe_instance.length > 0) { %>
-        <p>Delete the following shoe instances before deleting this shoe.</p>
-        <%shoe_instance.forEach(element => { %>
-            <a href="<%= element.url %>"><%= element.status %></a>
-            <p><%= element.restocking %></p>
-        <% }) %>
-    <% }else { %>
-        <p>Are you sure you want to delete this shoe?</p>
-        <form method="POST">
-            <input type="hidden" name="shoeid" value="<%=shoe._id %>">
-            <button type="submit">Delete</button>
-        </form>
-    <% }; %>
+    <section class="home">
+        <div class="home-page">
+            <p class="home-info title"> <%=shoe.title %></p>
+            <p class="home-info"><%=shoe.summary %></p>
+        </div>
+        
+        <% if(shoe_instance.length > 0) { %>
+            <div class="home-page">
+                <p class="home-info title">Delete the following shoe instances before deleting this shoe.</p>
+                <%shoe_instance.forEach(element => { %>
+                    <a class="page-links" href="<%= element.url %>"><%= element.status %></a>
+                    <p class="home-info"><%= element.restocking_formatted %></p>
+                    <p class="home-info"><%= element.manufactured %></p>
+                <% }) %>
+            </div>
+            
+        <% }else { %>
+            <div class="home-page">
+                <p class="home-info">Are you sure you want to delete this shoe?</p>
+                <form method="POST">
+                    <input type="hidden" name="shoeid" value="<%=shoe._id %>">
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+            
+        <% }; %>
+    </section>
 </body>
 </html>
