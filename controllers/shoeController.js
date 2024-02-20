@@ -80,7 +80,7 @@ exports.shoe_create_post = [
             res.render("shoe_form", {title: "Shoe Create", sellers: allSellers, brands: allBrands, shoes: shoe, errors: errors.array()});
         } else {
             await shoe.save();
-            res.redirect("/")
+            res.redirect(shoe.url)
         }
     }),
 ];
