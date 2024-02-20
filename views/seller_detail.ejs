@@ -9,22 +9,32 @@
 </head>
 <body>
     <%- include('./head.ejs')  %>
-    <a href="/catalog/seller/<%=sellers._id  %>/update">Update seller</a>
-    <a href="/catalog/seller/<%=sellers._id  %>/delete">Delete seller</a>
-    <p>Name: <%= sellers.name %></p>
-    <p>Brand: <%= sellers.shoebrand.name %></p>
-    <p>Manufactured: <%= sellers.manufactured %></p>
+    <section class="home">
+        <div class="detail-links">
+            <a class="page-links" href="/catalog/seller/<%=sellers._id  %>/update">Update seller</a>
+            <a class="page-links" href="/catalog/seller/<%=sellers._id  %>/delete">Delete seller</a>
+        </div>
 
-    <div>
-        <%if(shoes.length > 0){%>
-            <%shoes.forEach(element => {%>
-                <div class="shoe-list">
-                    
-                </div>
-           <%})%>
-           <%}else{%>
-                <p>There are no shoes for this seller</p>
-            <%}%>
-    </div>
+        <div class="home-page">
+            <p class="home-info title">Seller Information</p>
+            <p><b>Name:</b>  <%= sellers.name %></p>
+            <p><b>Brand:</b>  <%= sellers.shoebrand.name %></p>
+            <p><b>Established:</b>  <%= sellers.established_formatted %></p>
+        </div>
+
+        <div class="home-page">
+            <p class="home-info title">Shoes</p>
+            <%if(shoes.length > 0){%>
+                <%shoes.forEach(element => {%>
+                    <div class="shoe-list">
+                        <p class="home-info"><%= element.title %></p>
+                    </div>
+               <%})%>
+               <%}else{%>
+                    <p>There are no shoes for this seller</p>
+                <%}%>
+        </div>
+    </section>
+
 </body>
 </html>

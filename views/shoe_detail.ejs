@@ -9,24 +9,34 @@
 </head>
 <body>
     <%- include('./head.ejs')  %>
-    <a href="/catalog/shoes/<%=shoe._id  %>/update">Update Shoe</a>
-    <a href="/catalog/shoes/<%=shoe._id  %>/delete">Delete Shoe</a>
-    <p>Shoe: </p>
-    <p>Seller: </p>
-    <p>Summary: </p>
-    <p>Brand: </p>
-    <p></p>
+    <section class="home">
+        <div class="detail-links">
+            <a class="page-links" href="/catalog/shoes/<%=shoe._id  %>/update">Update Shoe</a>
+            <a class="page-links" href="/catalog/shoes/<%=shoe._id  %>/delete">Delete Shoe</a>
+        </div>
+        <div class="home-page">
+            <p class="home-info title">Shoe Information</p>
+            <p><b>Shoe:</b>  <%= shoe.title %></p>
+            <p><b>Seller:</b>  <%= shoe.seller.name %></p>
+            <p><b>Summary:</b>  <%= shoe.summary %></p>
+            <p><b>Brand:</b>  <%= shoe.brand.name %></p>
+        </div>
 
-    <div>
-        <%if(shoe_instance.length > 0){%>
-            <%shoe_instance.forEach(element => {%>
-                <div class="shoe-list">
-                    
-                </div>
-           <%})%>
-           <%}else{%>
-                <p>There are no shoe instance for this shoe</p>
-            <%}%>
-    </div>
+        <div class="home-page">
+            <p class="home-info title">Shoe instances</p>
+            <%if(shoe_instance.length > 0){%>
+                <%shoe_instance.forEach(element => {%>
+                    <div class="shoe-list">
+                        <p><b>status: </b> <%= element.status %></p>
+                        <p><b>Manufactured: </b> <%= element.manufactured %> </p>
+                        <p><b>Restocking: </b> <%= element.restocking_formatted %></p>
+                    </div>
+            <%})%>
+            <%}else{%>
+                    <p>There are no shoe instance for this shoe</p>
+                <%}%>
+        </div>
+    </section>
+    
 </body>
 </html>

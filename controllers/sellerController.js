@@ -71,7 +71,7 @@ exports.seller_create_post = [
 exports.get_seller_detail = asynchandler(async (req, res, next) => {
     const [sellers, shoes] = await Promise.all([
         Seller.findById(req.params.id).populate("shoebrand").exec(),
-        Shoes.find({brand: req.params.id}, "title summary").exec(),
+        Shoes.find({seller: req.params.id}, "title summary").exec(),
     ]);
 
     if(sellers === null){

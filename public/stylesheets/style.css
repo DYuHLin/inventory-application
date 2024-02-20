@@ -50,6 +50,12 @@ ul{
   margin-bottom: 24px;
 }
 
+.detail-links{
+  display: flex;
+  gap: 16px;
+  margin-bottom: 26px;
+}
+
 .home{
   width: 100%;
   display: flex;
@@ -88,6 +94,7 @@ button {
   color: white;
   font-size: 18px;
   transition: all 0.3s;
+  margin-top: 20px;
 }
 
 button:hover{
@@ -109,7 +116,7 @@ textarea {
   margin-bottom: 20px;
 }
 
-input {
+input, select{
   width: 100%;
   height: 40px;
   background-color: white;
