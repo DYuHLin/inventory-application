@@ -7,12 +7,13 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const catalogRouter = require('./routes/catalog');
+require("dotenv").config();
 
 var app = express();
 
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
-const mongoDB = "mongodb+srv://dyhlin2000:damian1216@cluster0.led1bup.mongodb.net/inventory_application?retryWrites=true&w=majority";
+const mongoDB = process.env.MONGODB_URL;
 
 main().catch((err)=> {console.log(err)});
 async function main() {
